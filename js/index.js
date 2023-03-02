@@ -5,8 +5,9 @@ const loader = () =>{
 }
 
 const dataRetriever = data =>{
-    // console.log(data)
-    data.forEach(item => {
+    const slicingData = data.slice(6)
+    // console.log(slicingData)
+    slicingData.forEach(item => {
         showCard(item)
     });
 }
@@ -17,7 +18,7 @@ const showCard = data =>{
     const cardContainer = document.getElementById("card__container");
     // console.log(name)
     cardContainer.innerHTML +=`
-        <div class="card w-96 bg-base-100 shadow-xl">
+        <div class="card w-96 bg-base-100 hover:bg-orange-100 shadow-xl">
                 <figure><img src=${image} alt="Shoes" /></figure>
                 <div class="card-body">
                     <h2 class="card-title">Features</h2>
