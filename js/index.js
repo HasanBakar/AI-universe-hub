@@ -27,6 +27,7 @@ const showCard = data =>{
                         <li>3. ${features[2]} </li>
                     </ol>
                     <hr>
+                    <h3 class="text-2xl font-semibold"> ${name}</h3>
                     <p>If a dog chews shoes whose shoes does he choose?</p>
                     <div class="card-actions justify-end">
                         <button class="btn btn-primary">Buy Now</button>
