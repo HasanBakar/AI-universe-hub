@@ -1,10 +1,26 @@
+const cardContainer = document.getElementById("card__container");
+
 const loader = () =>{
     fetch("https://openapi.programming-hero.com/api/ai/tools")
     .then(res => res.json())
-    .then(data => dataRetriever(data.data.tools))
+    .then(data => {
+        dataRetriever(data.data.tools);
+    })
 }
+const showAllBtn = document.getElementById("show__all");
 
 const dataRetriever = data =>{
+
+
+document.getElementById("btn_show__all").addEventListener("click", function () {
+    cardContainer.innerHTML = " ";
+    showAllBtn.classList.add("hidden")
+    data.forEach(allItem => {
+        showCard(allItem);
+    });
+})
+
+
     const slicingData = data.slice(6)
     // console.log(slicingData)
     slicingData.forEach(item => {
@@ -15,7 +31,6 @@ const dataRetriever = data =>{
 const showCard = data =>{
     // console.log(data)
     const {id, links, features, published_in, image, name, description} = data;
-    const cardContainer = document.getElementById("card__container");
     // console.log(name)
     cardContainer.innerHTML +=`
         <div class="card w-96 bg-base-100 hover:bg-orange-100 shadow-xl">
@@ -39,6 +54,6 @@ const showCard = data =>{
                     </div>
                 </div>
             </div>
-    `; 
+    `;     
 }
 loader();
