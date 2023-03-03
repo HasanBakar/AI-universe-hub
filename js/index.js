@@ -1,38 +1,51 @@
 const cardContainer = document.getElementById("card__container");
 
-const loader = () =>{
-    fetch("https://openapi.programming-hero.com/api/ai/tools")
-    .then(res => res.json())
-    .then(data => {
-        dataRetriever(data.data.tools);
-    })
-}
+const loader = () => {
+  fetch("https://openapi.programming-hero.com/api/ai/tools")
+    .then((res) => res.json())
+    .then((data) => {
+      dataRetriever(data.data.tools);
+    });
+};
 const showAllBtn = document.getElementById("show__all");
 
-const dataRetriever = data =>{
-
-
-document.getElementById("btn_show__all").addEventListener("click", function () {
-    cardContainer.innerHTML = " ";
-    showAllBtn.classList.add("hidden")
-    data.forEach(allItem => {
+const dataRetriever = (data) => {
+  document
+    .getElementById("btn_show__all")
+    .addEventListener("click", function () {
+      cardContainer.innerHTML = " ";
+      showAllBtn.classList.add("hidden");
+      data.forEach((allItem) => {
         showCard(allItem);
+      });
     });
-})
 
+  const slicingData = data.slice(6);
+  // console.log(slicingData)
+  slicingData.forEach((item) => {
+    showCard(item);
+  });
+};
 
-    const slicingData = data.slice(6)
-    // console.log(slicingData)
-    slicingData.forEach(item => {
-        showCard(item)
-    });
-}
+const modalOverlay = document.getElementById("modal_overlay");
+const modal = document.getElementById("modal");
+const ModalOpen = (value) => {
+  if (value) {
+    cardContainer.classList.add("opacity-20");
+    modalOverlay.classList.remove("hidden");
+    modal.classList.remove("opacity-0");
+  } else {
+    cardContainer.classList.remove("opacity-20");
+    modalOverlay.classList.add("hidden");
+    modal.classList.add("opacity-0");
+  }
+};
 
-const showCard = data =>{
-    // console.log(data)
-    const {id, links, features, published_in, image, name, description} = data;
-    // console.log(name)
-    cardContainer.innerHTML +=`
+const showCard = (data) => {
+  // console.log(data)
+  const { id, links, features, published_in, image, name, description } = data;
+  // console.log(name)
+  cardContainer.innerHTML += `
         <div class="card w-96 bg-base-100 hover:bg-orange-100 shadow-xl">
                 <figure><img src=${image} alt="Shoes" /></figure>
                 <div class="card-body">
@@ -49,11 +62,11 @@ const showCard = data =>{
                             <p><i class="fa-solid fa-calendar-days text-primary"></i> ${published_in}</p>
                         </div>
                         <div class="card-actions justify-end">
-                            <button class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i></button>
+                            <button onclick="ModalOpen(true)" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
-    `;     
-}
+    `;
+};
 loader();

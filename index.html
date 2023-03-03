@@ -19,6 +19,30 @@
         <button class="btn btn-secondary hover:bg-gray-400 hover:text-secondary my-3 text-white">Sort By Date</button>
     </header>
     <main class="container mx-auto" id="main-container">
+        <!-- modal section start -->
+        <!-- overlay -->
+        <div id="modal_overlay"
+            class="hidden absolute alert inset-0 bg-black bg-opacity-50 h-screen w-screen flex justify-center items-start md:items-center pt-10 md:pt-0">
+            <!-- modal  -->
+            <div onclick="ModalOpen(false)" id="modal"
+                class="opacity-0 relative w-10/12 md:w-1/2 h-1/2 md:h-3/4 bg-white rounded shadow-lg">
+                <!-- button close -->
+                <button
+                    class="absolute -top-3 -right-3 bg-red-400 hover:bg-red-700 text-2xl w-10 h-10 rounded-full focus:outline-none text-white">
+                    &cross;
+                </button>
+                <!-- modal body -->
+                <div class="bg-yellow-300 p-10 h-full w-full flex gap-4">
+                    <div class="bg-white w-1/2">
+                        <p>write your code ......</p>
+                    </div>
+                    <div class="bg-orange-500 w-1/2">
+                        <p>write your code ......</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal section end -->
         <!-- card section start -->
         <section id="card__container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 my-5">
 
@@ -30,9 +54,10 @@
                 More</button>
         </section>
         <!-- card section end -->
-    </main>
-    <footer>
 
+    </main>
+    <!-- <button class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i></button> -->
+    <footer>
     </footer>
     <script src="js/index.js"></script>
 </body>

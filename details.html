@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Modal</title>
+</head>
+
+<body>
+    <div class="p-5">
+        <button onclick="ModalOpen(true)"
+            class="bg-green-500 hover:bg-green-700 px-3 rounded text-white focus:outline-none">
+            open modal
+        </button>
+    </div>
+    <!-- overlay -->
+    <div id="modal_overlay"
+        class="hidden absolute inset-0 bg-black bg-opacity-30 h-screen w-full flex justify-center items-start md:items-center pt-10 md:pt-0">
+        <!-- modal  -->
+        <div onclick="ModalOpen(false)" id="modal"
+            class="opacity-0 relative w-10/12 md:w-1/2 h-1/2 md:h-3/4 bg-white rounded shadow-lg">
+            <!-- button close -->
+            <button
+                class="absolute -top-3 -right-3 bg-red-400 hover:bg-red-700 text-2xl w-10 h-10 rounded-full focus:outline-none text-white">
+                &cross;
+            </button>
+            <!-- modal body -->
+            <div class="bg-yellow-300 p-10 h-full w-full flex gap-4">
+                <div class="bg-white w-1/2">
+                    <p>write your code ......</p>
+                </div>
+                <div class="bg-orange-500 w-1/2">
+                    <p>write your code ......</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const modalOverlay = document.getElementById("modal_overlay");
+        const modal = document.getElementById("modal");
+        function ModalOpen(value) {
+            if (value) {
+                modalOverlay.classList.remove('hidden');
+                modal.classList.remove('opacity-0');
+            }
+            else {
+                modalOverlay.classList.add('hidden');
+                modal.classList.add('opacity-0');
+            }
+        }
+    </script>
+</body>
+
+</html>
