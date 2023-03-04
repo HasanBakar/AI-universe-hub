@@ -126,11 +126,11 @@ const modalDataShow = (dataDetails) => {
                         </div>
                     </div>
 
-                    <div class="p-3 w-full md:w-1/2 border-2 border-violet-700">
+                    <div class="p-2 w-full md:w-1/2 border-2 border-violet-700">
                         
                         <div>
                             <div class="relative h-[360px] w-full">
-                                <img class="w-full md:h-[260px] lg:h-[360px]" src='${
+                                <img class="w-full md:h-[230px] lg:h-[290px]" src='${
                                   image_link[0]
                                 }' alt="">
                                <span class="bg-red-700 ${
