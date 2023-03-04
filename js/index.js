@@ -38,17 +38,18 @@ const modalDataShow = (dataDetails) => {
     website,
     logo,
   } = dataDetails.data;
-  console.log(accuracy);
+  console.log(input_output_examples);
+  // console.log(accuracy);
   const priceFirst = pricing[0];
   const priceSecond = pricing[1];
   const priceThird = pricing[2];
 
   modalCantainer.innerHTML = `
-                  <div class="w-full md:w-1/2 border-2 border-violet-700 p-2 bg-red-100 md:p-5">
+                  <div class="w-full md:w-1/2 border-2 border-violet-700 p-2 bg-slate-200	md:p-5">
                         <h2 class="md:text-lg lg:text-2xl mb-2 font-bold">${description} </h2>
                         <!-- pricing section  -->
                         <div class="grid grid-cols-3 md:gap-5">
-                            <div class="shadow-lg border-base-100 font-semibold border-2 p-1 flex flex-col items-center justify-center">
+                            <div class="shadow-lg border-base-100 bg-neutral-300	font-semibold border-2 p-1 flex flex-col items-center justify-center">
                             <p>${
                               priceFirst.price
                                 ? priceFirst.price
@@ -60,7 +61,7 @@ const modalDataShow = (dataDetails) => {
                                 : "NO DATA FOUND"
                             }</p>
                             </div>
-                            <div class="shadow-lg border-base-100 font-semibold text-orange-500	border-2 flex flex-col items-center justify-center">
+                            <div class="shadow-lg border-base-100 bg-neutral-300	font-semibold text-orange-500	border-2 flex flex-col items-center justify-center">
                             <p>${
                               priceSecond.price
                                 ? priceSecond.price
@@ -72,7 +73,7 @@ const modalDataShow = (dataDetails) => {
                                 : "NO DATA FOUND"
                             } </p>
                             </div>
-                            <div class="text-center shadow-lg font-semibold text-red-600 border-base-100 border-base-100 border-2 flex flex-col items-center justify-center">
+                            <div class="text-center shadow-lg font-semibold text-red-600 border-base-100 bg-neutral-300	border-base-100 border-2 flex flex-col items-center justify-center">
                                 <p>${
                                   priceThird.price
                                     ? priceThird.price
@@ -125,11 +126,11 @@ const modalDataShow = (dataDetails) => {
                         </div>
                     </div>
 
-                    <div class="bg-orange-500 w-full md:w-1/2 border-2 border-violet-700">
-                        <!-- <p>write your code ......</p> -->
+                    <div class="p-3 w-full md:w-1/2 border-2 border-violet-700">
+                        
                         <div>
                             <div class="relative h-[360px] w-full">
-                                <img class="w-full md:h-[360px]" src='${
+                                <img class="w-full md:h-[260px] lg:h-[360px]" src='${
                                   image_link[0]
                                 }' alt="">
                                <span class="bg-red-700 ${
@@ -139,10 +140,11 @@ const modalDataShow = (dataDetails) => {
   }&#37; accuracy</span> 
                             </div>
                             <div>
-                                <h3 class="text-4xl">Lorem ipsum dolor sit amet.</h3>
-                                <P>Lorem ipsum dolor sit.</P>
-                                <P>Ut, laudantium. Officia, ex.</P>
-                                <P>A distinctio numquam enim.</P>
+                                <h3 class="text-2xl font-semibold">${
+                                  input_output_examples[0].input
+                                } </h3>
+                                <P>
+                                ${input_output_examples[0].output} </P>
                             </div>
                         </div>
                     </div> 
