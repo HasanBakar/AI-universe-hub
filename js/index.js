@@ -38,7 +38,115 @@ const modalDataShow = (dataDetails) => {
     website,
     logo,
   } = dataDetails.data;
-  console.log(integrations);
+  console.log(accuracy);
+  const priceFirst = pricing[0];
+  const priceSecond = pricing[1];
+  const priceThird = pricing[2];
+
+  modalCantainer.innerHTML = `
+                  <div class="w-full md:w-1/2 border-2 border-violet-700 p-2 bg-red-100 md:p-5">
+                        <h2 class="md:text-lg lg:text-2xl mb-2 font-bold">${description} </h2>
+                        <!-- pricing section  -->
+                        <div class="grid grid-cols-3 md:gap-5">
+                            <div class="shadow-lg border-base-100 font-semibold border-2 p-1 flex flex-col items-center justify-center">
+                            <p>${
+                              priceFirst.price
+                                ? priceFirst.price
+                                : "NO DATA FOUND"
+                            }</p>
+                            <p>${
+                              priceFirst.plan
+                                ? priceFirst.plan
+                                : "NO DATA FOUND"
+                            }</p>
+                            </div>
+                            <div class="shadow-lg border-base-100 font-semibold text-orange-500	border-2 flex flex-col items-center justify-center">
+                            <p>${
+                              priceSecond.price
+                                ? priceSecond.price
+                                : "NO DATA FOUND"
+                            }</p>
+                            <p>${
+                              priceSecond.plan
+                                ? priceSecond.plan
+                                : "NO DATA FOUND"
+                            } </p>
+                            </div>
+                            <div class="text-center shadow-lg font-semibold text-red-600 border-base-100 border-base-100 border-2 flex flex-col items-center justify-center">
+                                <p>${
+                                  priceThird.price
+                                    ? priceThird.price
+                                    : "NO DATA FOUND"
+                                } </p>
+                                <p>${
+                                  priceThird.plan
+                                    ? priceFirst.plan
+                                    : "NO DATA FOUND"
+                                }</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 justify-between">
+                            <!-- feature section  -->
+                            <div>
+                                <h3 class="text-3xl font-semibold">Features</h3>
+                                <ol>
+                                    <li>&#x2022;  ${
+                                      features[1].feature_name
+                                    }</li>
+                                    <li>&#x2022;  ${
+                                      features[2].feature_name
+                                    }</li>
+                                    <li>&#x2022;  ${
+                                      features[3].feature_name
+                                    }</li>
+                                </ol>
+                            </div>
+                            <!-- integration section  -->
+                            <div>
+                                <h3 class="text-3xl font-semibold">Integrations</h3>
+                                <ol>
+                                    <li> &#x2022; ${
+                                      integrations[0]
+                                        ? integrations[0]
+                                        : "NO DATA FOUND"
+                                    }</li>
+                                    <li> &#x2022; ${
+                                      integrations[1]
+                                        ? integrations[1]
+                                        : "NO DATA FOUND"
+                                    }</li>
+                                    <li> &#x2022; ${
+                                      integrations[2]
+                                        ? integrations[2]
+                                        : "NO DATA FOUND"
+                                    }</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-orange-500 w-full md:w-1/2 border-2 border-violet-700">
+                        <!-- <p>write your code ......</p> -->
+                        <div>
+                            <div class="relative h-[360px] w-full">
+                                <img class="w-full md:h-[360px]" src='${
+                                  image_link[0]
+                                }' alt="">
+                               <span class="bg-red-700 ${
+                                 accuracy.score ? " " : "hidden"
+                               } text-white px-3 py-1 rounded-lg absolute top-1 right-1">${
+    accuracy.score
+  }&#37; accuracy</span> 
+                            </div>
+                            <div>
+                                <h3 class="text-4xl">Lorem ipsum dolor sit amet.</h3>
+                                <P>Lorem ipsum dolor sit.</P>
+                                <P>Ut, laudantium. Officia, ex.</P>
+                                <P>A distinctio numquam enim.</P>
+                            </div>
+                        </div>
+                    </div> 
+  `;
 };
 
 const showAllBtn = document.getElementById("show__all");
@@ -54,7 +162,7 @@ const dataRetriever = (data) => {
       });
     });
 
-  const slicingData = data.slice(6);
+  const slicingData = data.slice(1, 7);
   // console.log(slicingData)
   slicingData.forEach((item) => {
     showCard(item);
@@ -68,11 +176,13 @@ const modalOverlay = document.getElementById("modal_overlay");
 const modal = document.getElementById("modal");
 const ModalOpen = (value) => {
   if (value) {
-    cardContainer.classList.add("opacity-20");
+    cardContainer.classList.add("opacity-10");
+    cardContainer.classList.add("brightness-50");
     modalOverlay.classList.remove("hidden");
     modal.classList.remove("opacity-0");
   } else {
-    cardContainer.classList.remove("opacity-20");
+    cardContainer.classList.remove("opacity-10");
+    cardContainer.classList.remove("brightness-50");
     modalOverlay.classList.add("hidden");
     modal.classList.add("opacity-0");
   }
