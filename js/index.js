@@ -1,4 +1,5 @@
 const cardContainer = document.getElementById("card__container");
+// const sortDate = document.getElementById("sortByDate");
 /*
 all data api calling Start
  */
@@ -9,7 +10,6 @@ const loader = () => {
     .then((res) => res.json())
     .then((data) => {
       dataRetriever(data.data.tools);
-      // dataPass(data.data.tools);
     });
 };
 /*
@@ -40,7 +40,7 @@ const modalDataShow = (dataDetails) => {
     website,
     logo,
   } = dataDetails.data;
-  console.log(input_output_examples);
+  // console.log(input_output_examples);
   // console.log(accuracy);
   const priceFirst = pricing[0];
   const priceSecond = pricing[1];
@@ -152,8 +152,6 @@ const modalDataShow = (dataDetails) => {
                     </div> 
   `;
 };
-
-const showAllBtn = document.getElementById("show__all");
 
 const dataRetriever = (data) => {
   document
