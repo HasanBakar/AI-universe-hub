@@ -14,11 +14,26 @@
 </head>
 
 <body>
+
+    <!-- Loader section start  -->
+    <section id="loader" class="hidden text-center">
+        <div>
+            <progress class="progress w-56"></progress>
+            <br>
+            <progress class="ml-5 progress progress-secondary w-56"></progress>
+            <br>
+            <progress class="ml-12 progress progress-success w-56"></progress>
+            <br>
+            <progress class="ml-24 progress progress-warning w-56"></progress>
+        </div>
+    </section>
+    <!-- Loader section end  -->
+
     <header class="text-center">
         <h1 class="text-4xl font-extrabold">AI Universe Hub</h1>
         <button class="btn btn-secondary hover:bg-gray-400 hover:text-secondary my-3 text-white">Sort By Date</button>
     </header>
-    <main class="container mx-auto" id="main-container">
+    <main onload="setTimeout(toggleLoader(true), 600000)" class="container mx-auto" id="main-container">
         <!-- modal section start -->
         <!-- overlay -->
         <div id="modal_overlay"
@@ -49,7 +64,6 @@
                 More</button>
         </section>
         <!-- card section end -->
-
     </main>
     <!-- <button class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i></button> -->
     <footer>

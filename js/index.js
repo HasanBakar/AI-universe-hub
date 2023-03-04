@@ -1,8 +1,10 @@
 const cardContainer = document.getElementById("card__container");
 /*
-all data loader Start
+all data api calling Start
  */
 const loader = () => {
+  toggleLoader(true);
+  // loader showing start
   fetch("https://openapi.programming-hero.com/api/ai/tools")
     .then((res) => res.json())
     .then((data) => {
@@ -11,7 +13,7 @@ const loader = () => {
     });
 };
 /*
-all data loader end
+all data api calling end
  */
 
 const dataLoadingWithId = (id) => {
@@ -195,6 +197,8 @@ const ModalOpen = (value) => {
 
 const showCard = (data) => {
   // console.log(data)
+  // loader stop showing
+  toggleLoader(false);
   const { id, links, features, published_in, image, name, description } = data;
   cardContainer.innerHTML += `
         <div class="card w-96 bg-base-100 hover:bg-orange-100 shadow-xl">
@@ -219,5 +223,14 @@ const showCard = (data) => {
                 </div>
             </div>
     `;
+};
+
+const toggleLoaderContainer = document.getElementById("loader");
+const toggleLoader = (isLoading) => {
+  if (isLoading) {
+    toggleLoaderContainer.classList.remove("hidden");
+  } else {
+    toggleLoaderContainer.classList.add("hidden");
+  }
 };
 loader();
