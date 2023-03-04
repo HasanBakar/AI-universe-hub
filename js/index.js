@@ -1,5 +1,4 @@
 const cardContainer = document.getElementById("card__container");
-// const sortDate = document.getElementById("sortByDate");
 /*
 all data api calling Start
  */
@@ -153,6 +152,8 @@ const modalDataShow = (dataDetails) => {
   `;
 };
 
+const showAllBtn = document.getElementById("show__all");
+
 const dataRetriever = (data) => {
   document
     .getElementById("btn_show__all")
@@ -171,6 +172,11 @@ const dataRetriever = (data) => {
   });
 };
 
+document
+  .getElementById("sortByDate")
+  .addEventListener("click", function sortByDate(dateFinding) {
+    console.log(dateFinding);
+  });
 /*
  this fuction is modal section, start here
   */
